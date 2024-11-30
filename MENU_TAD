@@ -4,16 +4,16 @@ local player = Players.LocalPlayer
 local starterGui = player:WaitForChild("PlayerGui")
 local backpack = player:WaitForChild("Backpack")
 
-
+-- Tạo GUI chính
 local screenGui = Instance.new("ScreenGui", starterGui)
 screenGui.ResetOnSpawn = false
 
+-- Tông màu
+local backgroundColor = Color3.fromRGB(75, 0, 130) -- Tím đậm
+local buttonColor = Color3.fromRGB(138, 43, 226) -- Tím nhạt
+local textColor = Color3.fromRGB(255, 255, 255) -- Trắng
 
-local backgroundColor = Color3.fromRGB(75, 0, 130) 
-local buttonColor = Color3.fromRGB(138, 43, 226) 
-local textColor = Color3.fromRGB(255, 255, 255) 
-
-
+-- Dữ liệu nút
 local buttonsData = {
     {Name = "tp", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_TP/refs/heads/main/TICKEN_TP"))() end},
     {Name = "tp_g_pc", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_TP_G_pc/refs/heads/main/TICKEN_TP_G_pc"))() end},
@@ -34,14 +34,15 @@ local buttonsData = {
     {Name = "menu_tp_sea3", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/MENU_TP_SEA3/refs/heads/main/MENU_TP_SEA3"))() end},
     {Name = "speed", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_SPEED/refs/heads/main/TICKEN_SPEED"))() end},
     {Name = "auto_chest", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_CHECK_SEA/refs/heads/main/TICKEN_CHECK_SEA_AUTO_CHEST"))() end},
-    {Name = "toy", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_TOY/refs/heads/main/TICKEN_TOY"))() end}
+    {Name = "toy", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_TOY/refs/heads/main/TICKEN_TOY"))() end},
+    {Name = "toy", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_TO_SEA_LV6/refs/heads/main/TICKEN_TO_SEA_LV6"))() end}
 }
 
-
+-- Kích thước và vị trí mặc định
 local menuWidth, menuHeight = 400, 300
 local menuPosX, menuPosY = 100, 100
 
-
+-- Frame Menu chính
 local menuFrame = Instance.new("Frame", screenGui)
 menuFrame.Size = UDim2.new(0, menuWidth, 0, menuHeight)
 menuFrame.Position = UDim2.new(0, menuPosX, 0, menuPosY)
@@ -53,7 +54,7 @@ menuFrame.Draggable = true
 local uiCorner = Instance.new("UICorner", menuFrame)
 uiCorner.CornerRadius = UDim.new(0.1, 0)
 
-
+-- ScrollFrame cho nút
 local buttonContainer = Instance.new("ScrollingFrame", menuFrame)
 buttonContainer.Size = UDim2.new(1, -20, 1, -80)
 buttonContainer.Position = UDim2.new(0, 10, 0, 60)
@@ -64,7 +65,7 @@ local layout = Instance.new("UIGridLayout", buttonContainer)
 layout.CellSize = UDim2.new(0, 120, 0, 40)
 layout.CellPadding = UDim2.new(0, 10, 0, 10)
 
-
+-- Thanh tìm kiếm
 local searchBox = Instance.new("TextBox", menuFrame)
 searchBox.Size = UDim2.new(0.8, 0, 0, 30)
 searchBox.Position = UDim2.new(0.1, 0, 0, 10)
@@ -78,7 +79,7 @@ searchBox.TextScaled = true
 local searchCorner = Instance.new("UICorner", searchBox)
 searchCorner.CornerRadius = UDim.new(0.1, 0)
 
-
+-- Thêm nút vào menu
 local function addButton(name, scriptFunc)
     local button = Instance.new("TextButton", buttonContainer)
     button.Size = UDim2.new(0, 120, 0, 40)
@@ -93,7 +94,7 @@ local function addButton(name, scriptFunc)
     end)
 end
 
-
+-- Cập nhật nút theo tìm kiếm
 local function updateButtons()
     for _, button in ipairs(buttonContainer:GetChildren()) do
         if button:IsA("TextButton") then
@@ -111,15 +112,15 @@ end
 
 searchBox.Changed:Connect(updateButtons)
 
-
+-- Ban đầu tải các nút
 updateButtons()
 
-
+-- Tạo item Menu
 local menuItem = Instance.new("Tool")
 menuItem.Name = "Menu"
 menuItem.Parent = backpack
 
-
+-- Tạo mô hình item Menu
 local menuModel = Instance.new("Part")
 menuModel.Size = Vector3.new(1, 1, 1)
 menuModel.Shape = Enum.PartType.Block
@@ -129,7 +130,7 @@ menuModel.Anchored = false
 menuModel.CanCollide = false
 menuModel.Parent = menuItem
 
-
+-- Tạo mô hình cầm tay giống điện thoại
 local phoneModel = Instance.new("Part")
 phoneModel.Size = Vector3.new(0.5, 1.5, 0.2)
 phoneModel.Color = Color3.fromRGB(75, 0, 130)
@@ -148,7 +149,7 @@ phoneLabel.BackgroundTransparency = 1
 phoneLabel.Font = Enum.Font.SourceSansBold
 phoneLabel.TextScaled = true
 
-
+-- Hiện/ẩn menu khi cầm item Menu
 menuItem.Equipped:Connect(function()
     menuFrame.Visible = true
 end)
@@ -157,8 +158,8 @@ menuItem.Unequipped:Connect(function()
     menuFrame.Visible = false
 end)
 
-
+-- Khi chết hoặc reset, trả lại item Menu
 player.CharacterAdded:Connect(function()
-    wait(1) 
+    wait(1) -- Đợi 1 giây để đảm bảo nhân vật được tạo
     menuItem.Parent = backpack
 end)
