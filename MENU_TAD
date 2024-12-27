@@ -31,7 +31,7 @@ local buttonsData = {
     {Name = "auto_click", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_AUTO_CLICK/refs/heads/main/TICKEN_AUTO_CLICK"))() end},
     {Name = "fling", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_FLING/refs/heads/main/TICKEN_FLING"))() end},
     {Name = "raid", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_RAID/refs/heads/main/TICKEN_RAID"))() end},
-    {Name = "menu_tp_sea3", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/MENU_TP_SEA3/refs/heads/main/MENU_TP_SEA3"))() end},
+    {Name = "menu_tp", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/CHECK_SEA_MENU_TP/refs/heads/main/CHECK_SEA_MENU_TP"))() end},
     {Name = "speed", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_SPEED/refs/heads/main/TICKEN_SPEED"))() end},
     {Name = "auto_chest", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_CHECK_SEA/refs/heads/main/TICKEN_CHECK_SEA_AUTO_CHEST"))() end},
     {Name = "toy", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_TOY/refs/heads/main/TICKEN_TOY"))() end},
