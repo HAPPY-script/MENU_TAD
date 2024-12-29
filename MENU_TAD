@@ -35,7 +35,8 @@ local buttonsData = {
     {Name = "speed", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_SPEED/refs/heads/main/TICKEN_SPEED"))() end},
     {Name = "auto_chest", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_CHECK_SEA/refs/heads/main/TICKEN_CHECK_SEA_AUTO_CHEST"))() end},
     {Name = "toy", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_TOY/refs/heads/main/TICKEN_TOY"))() end},
-    {Name = "to_sea_lv6", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_TO_SEA_LV6/refs/heads/main/TICKEN_TO_SEA_LV6"))() end}
+    {Name = "to_sea_lv6", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_TO_SEA_LV6/refs/heads/main/TICKEN_TO_SEA_LV6"))() end},
+    {Name = "auto_berry", Script = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/TICKEN_AUTO_BERRY_SEA1/refs/heads/main/TICKEN_AUTO_BERRY"))() end}
 }
 
 -- Kích thước và vị trí mặc định
