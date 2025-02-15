@@ -123,6 +123,9 @@ local menuItem = Instance.new("Tool")
 menuItem.Name = "Menu"
 menuItem.Parent = backpack
 
+-- Thêm icon thay cho tên
+menuItem.TextureId = "rbxthumb://type=Asset&id=488453319&w=150&h=150"
+
 -- Tạo mô hình item Menu
 local menuModel = Instance.new("Part")
 menuModel.Size = Vector3.new(1, 1, 1)
@@ -159,10 +162,4 @@ end)
 
 menuItem.Unequipped:Connect(function()
     menuFrame.Visible = false
-end)
-
--- Khi chết hoặc reset, trả lại item Menu
-player.CharacterAdded:Connect(function()
-    wait(1) -- Đợi 1 giây để đảm bảo nhân vật được tạo
-    menuItem.Parent = backpack
 end)
